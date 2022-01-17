@@ -13,6 +13,9 @@ SavegameEditor={
 		HEROXP:0x6c,
 		HEROHP:0x5c,
 		HEROSP:0x60,
+		HEROKNOWLEDGE:0x13868, /* U16 */
+		HEROGUTS:0x1386e,
+		HEROKINDNESS:0x13870,
 		RYUJIXP:0x344,
 		MORGANAXP:0x5ec,
 		ANNXP:0x894,
@@ -41,6 +44,9 @@ SavegameEditor={
 		setValue('heroxp', tempFile.readU32(this.Offsets.HEROXP));
 		setValue('herohp', tempFile.readU32(this.Offsets.HEROHP));
 		setValue('herosp', tempFile.readU32(this.Offsets.HEROSP));
+		setValue('heroknowledge', tempFile.readU16(this.Offsets.HEROKNOWLEDGE));
+		setValue('heroguts', tempFile.readU16(this.Offsets.HEROGUTS));
+		setValue('herokindness', tempFile.readU16(this.Offsets.HEROKINDNESS));
 		setValue('ryujixp', tempFile.readU32(this.Offsets.RYUJIXP));
 		setValue('morganaxp', tempFile.readU32(this.Offsets.MORGANAXP));
 		setValue('annxp', tempFile.readU32(this.Offsets.ANNXP));
@@ -54,6 +60,9 @@ SavegameEditor={
 		tempFile.writeU32(this.Offsets.HEROXP, getValue('heroxp'));
 		tempFile.writeU32(this.Offsets.HEROHP, getValue('herohp'));
 		tempFile.writeU32(this.Offsets.HEROSP, getValue('herosp'));
+		tempFile.writeU16(this.Offsets.HEROKNOWLEDGE, getValue('heroknowledge'));
+		tempFile.writeU16(this.Offsets.HEROGUTS, getValue('heroguts'));
+		tempFile.writeU16(this.Offsets.HEROKINDNESS, getValue('herokindness'));
 		tempFile.writeU32(this.Offsets.RYUJIXP, getValue('ryujixp'));
 		tempFile.writeU32(this.Offsets.MORGANAXP, getValue('morganaxp'));
 		tempFile.writeU32(this.Offsets.ANNXP, getValue('annxp'));
