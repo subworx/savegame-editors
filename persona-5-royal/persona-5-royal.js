@@ -57,19 +57,19 @@ SavegameEditor={
 		/* PROTAGONISTSTATS */
 		for(var i=0; i<this.Constants.PROTAGONISTSTATS.length; i++){
 			var val,input;
-			if(i==24 || i==25){
+			/*if(i==24 || i==25){
 				val=tempFile.readF32(this.Offsets.PROTAGONISTSTATS+i*4);
 				//console.log((this.Offsets.STATS+i*4).toString(16));
 				input=inputFloat('stat'+i, 0.0, 9.0, val);
-			}else{
+			}else{ */
 				val=tempFile.readU32(this.Offsets.PROTAGONISTSTATS+i*4);
-				input=inputNumber('stat'+i, 0, 0xffffffff, val);
-			}
+				input=inputNumber('protagoniststat'+i, 0, 0xffffffff, val);
+			//}
 
 			document.getElementById('protagoniststats').appendChild(
 				row(
 					[8,4],
-					label('stat'+i, this.Constants.PROTAGONISTSTATS[i]),
+					label('protagoniststat'+i, this.Constants.PROTAGONISTSTATS[i]),
 					input
 				)
 			);
