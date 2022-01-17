@@ -30,13 +30,13 @@ SavegameEditor={
 	load:function(){
 		tempFile.fileName='DATA.DAT';
 
-		setValue('money', tempFile.readU16(this.Offsets.MONEY));
+		setValue('money', tempFile.readU32(this.Offsets.MONEY));
 		setValue('boughtpicrites', tempFile.readU16(this.Offsets.BOUGHTPICRITES));
 	},
 
 	/* save function */
 	save:function(){
-		tempFile.writeU16(this.Offsets.MONEY, getValue('money'));
+		tempFile.writeU32(this.Offsets.MONEY, getValue('money'));
 		var boughtPicrites=getValue('boughtpicrites');
 		tempFile.writeU16(this.Offsets.BOUGHTPICRITES, boughtPicrites);
 		var unlockedShopByte=tempFile.readU8(this.Offsets.UNLOCKEDSHOPFLAG) & ~0x01;
