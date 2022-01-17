@@ -10,9 +10,29 @@ SavegameEditor={
 
 	Offsets:{
 		MONEY:0x357c,
+		PROTAGONISTXP:0x6c,
+		RYUJIXP:0x344,
 		BOUGHTPICRITES:0x0b44,
 		PENDINGPICRITES:0x0b48, /* if there is an error after buying, they are queued here */
 		UNLOCKEDSHOPFLAG:0x0b4c,
+	},
+
+	Constants:{
+		PROTAGONISTSTATS:[
+			'XP',
+			'HP',
+			'SP',
+			'Courage',
+			'Knowledge',
+			'Expression',
+			'Understanding',
+			'Diligence'
+		],
+		CHARACTERSTATS:[
+			'XP',
+			'HP',
+			'SP'
+		]
 	},
 
 	/* check if savegame is valid */
