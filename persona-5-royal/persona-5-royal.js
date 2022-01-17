@@ -11,6 +11,7 @@ SavegameEditor={
 	Offsets:{
 		MONEY:0x357c,
 		PROTAGONISTXP:0x6c,
+		PROTAGONISTSTATS:0x6c,
 		RYUJIXP:0x344,
 		BOUGHTPICRITES:0x0b44,
 		PENDINGPICRITES:0x0b48, /* if there is an error after buying, they are queued here */
@@ -52,6 +53,27 @@ SavegameEditor={
 
 		setValue('money', tempFile.readU32(this.Offsets.MONEY));
 		setValue('boughtpicrites', tempFile.readU16(this.Offsets.BOUGHTPICRITES));
+
+		/* PROTAGONISTSTATS */
+		for(var i=0; i<this.Constants.PROTAGONISTSTATS.length; i++){
+			var val,input;
+			if(i==24 || i==25){
+				val=tempFile.readF32(this.Offsets.PROTAGONISTSTATS+i*4);
+				//console.log((this.Offsets.STATS+i*4).toString(16));
+				input=inputFloat('stat'+i, 0.0, 9.0, val);
+			}else{
+				val=tempFile.readU32(this.Offsets.PROTAGONISTSTATS+i*4);
+				input=inputNumber('stat'+i, 0, 0xffffffff, val);
+			}
+
+			document.getElementById('protagoniststats').appendChild(
+				row(
+					[8,4],
+					label('stat'+i, this.Constants.PROTAGONISTSTATS[i]),
+					input
+				)
+			);
+		}
 	},
 
 	/* save function */
