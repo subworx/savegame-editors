@@ -17,3 +17,6 @@ It can edit a few bits in the following games:
  * Pokémon Shuffle (3DS)
  * Rhythm Paradise Megamix (3DS)
  * StreetPass Mii Plaza (3DS)
+
+New in progress:
+ * Persona 5 Royal (PS4)
