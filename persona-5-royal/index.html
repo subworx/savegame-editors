@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Savegame Editor &ndash; Persona 5 Royal</title>
+	<meta http-equiv="content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="description" content="A savegame editor for Persona 5 Royal. It lets you edit all kinds of stuff."/>
+	<meta name="keywords" content="html5, savegame, save, editor, hack, exploit, ps4, Persona, Persona 5 Royal"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<link rel="shortcut icon" href="favicon.png"/>
+	<link type="text/css" rel="stylesheet" href="../savegame-editor.css" media="all"/>
+	<script type="text/javascript" src="../savegame-editor.js"></script>
+	<script type="text/javascript" src="./persona-5-royal.js"></script>
+	<script type="text/javascript"><!--
+		/* service worker */
+		var FORCE_HTTPS=true;
+		window.addEventListener('load',function(){
+			if(location.protocol==='http:' && FORCE_HTTPS)
+				location.replace(window.location.href.replace('http:','https:'));
+			else if(location.protocol==='https:' && 'serviceWorker' in navigator)
+				navigator.serviceWorker.register('/savegame-editors/persona-5-royal/_cache_service_worker.js', {scope: '/savegame-editors/persona-5-royal/'});
+		}, false);
+	--></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+	<div id="header-top">
+		<div class="row wrapper">
+			<h1 class="six columns text-left"><img src="favicon.png" /> Savegame Editor <small>for Persona 5 Royal</small></h1>
+			<div class="six columns header-buttons text-right">
+				fork by <a href="/savegame-editors/">subworx</a>
+				<i class="icon github"></i> <a href="https://github.com/marcrobledo/savegame-editors/tree/master/pokemon-picross" target="_blank">See on GitHub</a>
+			</div>
+		</div>
+		<div class="hidden row wrapper" id="toolbar">
+			<div class="twelve columns text-center">
+				<button class="close" onclick="closeFile()"><i class="icon close"></i> Close file</button>
+				<button class="colored" onclick="saveChanges()"><i class="icon accept"></i> Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- THE EDITOR -->
+<div id="the-editor" class="wrapper hidden">
+	<!-- BASICS -->
+	<h3 class="orange">Basics</h3>
+	<div class="container">
+		<div class="row">
+			<div class="six columns center"><label for="money">Money</label></div>
+			<div class="four columns center"><input id="money" type="text" /></div>
+		</div>
+		<div class="row">
+			<div class="six columns center"><label for="number-boughtpicrites">Bought picrites</label><br/><small>(Note: if you buy 5000 picrites, you have access to unlimited picrites in-game)</small></div>
+			<div class="four columns center"><input id="number-boughtpicrites" type="text" /></div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
