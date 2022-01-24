@@ -29,8 +29,9 @@
 		<div class="row wrapper">
 			<h1 class="six columns text-left"><img src="favicon.png" /> Savegame Editor <small>for Persona 5 Royal</small></h1>
 			<div class="six columns header-buttons text-right">
-				fork by <a href="/savegame-editors/">subworx</a>
-				<i class="icon github"></i> <a href="https://github.com/marcrobledo/savegame-editors/tree/master/pokemon-picross" target="_blank">See on GitHub</a>
+				<a href="../">back to editors overview</a>
+				<i class="icon github"></i> fork by <a href="https://github.com/subworx/savegame-editors/" target="_blank">subworx</a>
+				 <a href="https://github.com/marcrobledo/savegame-editors/" target="_blank">see original on GitHub</a>
 			</div>
 		</div>
 		<div class="hidden row wrapper" id="toolbar">
@@ -45,65 +46,237 @@
 
 <!-- THE EDITOR -->
 <div id="the-editor" class="wrapper hidden">
-	<!-- BASICS -->
-	<h3 class="orange">Basics</h3>
+	<!-- GENERAL -->
+	<h3 class="green">General</h3>
 	<div class="container">
 		<div class="row">
 			<div class="six columns center"><label for="money">Money</label></div>
 			<div class="four columns center"><input id="money" type="text" /></div>
 		</div>
 		<div class="row">
-			<div class="six columns center"><label for="number-boughtpicrites">Bought picrites</label><br/><small>(Note: if you buy 5000 picrites, you have access to unlimited picrites in-game)</small></div>
-			<div class="four columns center"><input id="number-boughtpicrites" type="text" /></div>
+			<div class="six columns center"><label for="secondhandpoints">Second Hand Points</label></div>
+			<div class="four columns center"><input id="secondhandpoints" type="text" /></div>
+		</div>
+		<div class="row">
+			<div class="six columns center"><label for="mementoflowers">Memento Flowers<br /><small>For safety, use ONLY with saves made inside Memento</small></label></div>
+			<div class="four columns center"><input id="mementoflowers" type="text" /></div>
 		</div>
 	</div>
 	<!-- PROTAGONIST STATS -->
-	<h3 class="red">Protagonist Stats</h3>
+	<h3 class="green">Protagonist Stats</h3>
 	<div class="container">
 		<div class="row">
-			<div class="six columns center"><label for="heroxp">Protagonist XP</label></div>
-			<div class="four columns center"><input id="heroxp" type="text" /></div>
+			<div class="two columns center"><label for="heroxp">XP<br /><small>Limit = Level 99</small></label></div>
+			<div class="two columns center"><input id="heroxp" type="text" /></div>
+			<div class="two columns center"><label for="herohp">Current HP</label></div>
+			<div class="two columns center"><input id="herohp" type="text" /></div>
+			<div class="two columns center"><label for="herosp">Current SP</label></div>
+			<div class="two columns center"><input id="herosp" type="text" /></div>
 		</div>
 		<div class="row">
-			<div class="six columns center"><label for="herohp">Protagonist HP</label></div>
-			<div class="four columns center"><input id="herohp" type="text" /></div>
+			<div class="columns left"><label>Max value for character stats equals level 5. Set 1 below max and raise stat in game to trigger achievements.</label></div>
 		</div>
 		<div class="row">
-			<div class="six columns center"><label for="herosp">Protagonist SP</label></div>
-			<div class="four columns center"><input id="herosp" type="text" /></div>
+			<div class="two columns center"><label for="heroknowledge">Knowledge</label></div>
+			<div class="two columns center"><input id="heroknowledge" type="text" /></div>
+			<div class="two columns center"><label for="heroguts">Guts</label></div>
+			<div class="two columns center"><input id="heroguts" type="text" /></div>
+			<div class="two columns center"><label for="herokindness">Kindness</label></div>
+			<div class="two columns center"><input id="herokindness" type="text" /></div>
 		</div>
 		<div class="row">
-			<div class="six columns center"><label for="heroknowledge">Knowledge</label></div>
-			<div class="four columns center"><input id="heroknowledge" type="text" /></div>
+			<div class="two columns"><label for="heroproficiency">Proficiency</label></div>
+			<div class="two columns"><input id="heroproficiency" type="text" /></div>
+			<div class="two columns"><label for="herocharm">Charm</label></div>
+			<div class="two columns"><input id="herocharm" type="text" /></div>
 		</div>
-		<div class="row">
-			<div class="six columns center"><label for="heroguts">Guts</label></div>
-			<div class="four columns center"><input id="heroguts" type="text" /></div>
-		</div>
-		<div class="row">
-			<div class="six columns center"><label for="herokindness">Kindness</label></div>
-			<div class="four columns center"><input id="herokindness" type="text" /></div>
-		</div>
-
 	</div>
-	<!-- CHARACTER STATS -->
-	<h3 class="orange">Character Stats</h3>
+
+	<!-- PROTAGONIST PERSONAS -->
+	<!--<h3 class="green">Equipped Personas</h3>
 	<div class="container">
 		<div class="row">
-			<div class="six columns center"><label for="ryujixp">Ryuji XP</label></div>
-			<div class="four columns center"><input id="ryujixp" type="text" /></div>
+			<div class="four columns"><label>Persona Name</label></div>
+		</div>
+	</div>-->
+
+	<!--RYUJI/SKULL STATS -->
+	<h3 class="green">Other Characters</h3>
+	<div class="container">
+		<div class="row">
+			<div class="two columns center"><label for="ryujixp">Ryuji/Skull XP</label></div>
+			<div class="two columns center"><input id="ryujixp" type="text" /></div>
+			<div class="two columns center"><label for="ryujihp">HP</label></div>
+			<div class="two columns center"><input id="ryujihp" type="text" /></div>
+			<div class="two columns center"><label for="ryujisp">SP</label></div>
+			<div class="two columns center"><input id="ryujisp" type="text" /></div>
+		</div>
+		<!-- RYUJI/SKULL PERSONA -->
+		<!--<div class="row">
+			<div class="two columns center"><label>Captain Kidd Level</label></div>
+			<div class="two columns center"><label>XP</label></div>
+			<div class="two columns center"><label>Trait ID</label></div>
 		</div>
 		<div class="row">
-			<div class="six columns center"><label for="morganaxp">Morgana XP</label></div>
-			<div class="four columns center"><input id="morganaxp" type="text" /></div>
+			<div class="two columns center"><label>Strength</label></div>
+			<div class="two columns center"><label>Magic</label></div>
+			<div class="two columns center"><label>Endurance</label></div>
 		</div>
 		<div class="row">
-			<div class="six columns center"><label for="annxp">Ann XP</label></div>
-			<div class="four columns center"><input id="annxp" type="text" /></div>
+			<div class="two columns center"><label>Agility</label></div>
+			<div class="two columns center"><label>Luck</label></div>
 		</div>
 		<div class="row">
-			<div class="six columns center"><label for="yusukexp">Yusuke XP</label></div>
-			<div class="four columns center"><input id="yusukexp" type="text" /></div>
+			<div class="three columns center"><label>Skill 1</label></div>
+			<div class="three columns center"><label>Skill 2</label></div>
+		</div>
+		<div class="row">
+			<div class="three columns center"><label>Skill 3</label></div>
+			<div class="three columns center"><label>Skill 4</label></div>
+		</div>
+		<div class="row">
+			<div class="three columns center"><label>Skill 5</label></div>
+			<div class="three columns center"><label>Skill 6</label></div>
+		</div>
+		<div class="row">
+			<div class="three columns center"><label>Skill 7</label></div>
+			<div class="three columns center"><label>Skill 8</label></div>
+		</div>
+    -->
+
+  	<!-- MORGANA/MONA STATS -->
+		<div class="row">
+			<div class="two columns center"><label for="morganaxp">Morgana/Mona XP</label></div>
+			<div class="two columns center"><input id="morganaxp" type="text" /></div>
+			<div class="two columns center"><label for="morganahp">HP</label></div>
+			<div class="two columns center"><input id="morganahp" type="text" /></div>
+			<div class="two columns center"><label for="morganasp">SP</label></div>
+			<div class="two columns center"><input id="morganasp" type="text" /></div>
+		</div>
+		<!-- MORGANA/MONA PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Zorro Level</label></div>
+		</div>
+	  -->
+
+		<!-- ANN/PANTHER STATS -->
+		<div class="row">
+			<div class="two columns center"><label for="annxp">Ann/Panther XP</label></div>
+			<div class="two columns center"><input id="annxp" type="text" /></div>
+			<div class="two columns center"><label for="annhp">HP</label></div>
+			<div class="two columns center"><input id="annhp" type="text" /></div>
+			<div class="two columns center"><label for="annsp">SP</label></div>
+			<div class="two columns center"><input id="annsp" type="text" /></div>
+		</div>
+		<!-- ANN/PANTHER PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Carmen Level</label></div>
+		</div>
+		-->
+
+		<!-- YUSUKE/FOX STATS -->
+		<div class="row">
+			<div class="two columns center"><label for="yusukexp">Yusuke/Fox XP</label></div>
+			<div class="two columns center"><input id="yusukexp" type="text" /></div>
+			<div class="two columns center"><label for="yusukehp">HP</label></div>
+			<div class="two columns center"><input id="yusukehp" type="text" /></div>
+			<div class="two columns center"><label for="yusukesp">SP</label></div>
+			<div class="two columns center"><input id="yusukesp" type="text" /></div>
+		</div>
+		<!-- YUSUKE/FOX PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Goemon Level</label></div>
+		</div>
+		-->
+
+		<!-- ??/QUEEN STATS -->
+		<div class="row">
+			<div class="two columns center"><label>???/Queen XP</label></div>
+			<div class="two columns center"><input id="QUEENxp" type="text" /></div>
+			<div class="two columns center"><label for="QUEENhp">HP</label></div>
+			<div class="two columns center"><input id="QUEENhp" type="text" /></div>
+			<div class="two columns center"><label for="QUEENsp">SP</label></div>
+			<div class="two columns center"><input id="QUEENsp" type="text" /></div>
+		</div>
+		<!-- ??/QUEEN PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Johanna Level</label></div>
+		</div>
+		-->
+
+  	<!-- ??/NOIR STATS -->
+		<div class="row">
+			<div class="two columns center"><label>???/Noir XP</label></div>
+			<div class="two columns center"><input id="NOIRxp" type="text" /></div>
+			<div class="two columns center"><label for="NOIRhp">HP</label></div>
+			<div class="two columns center"><input id="NOIRhp" type="text" /></div>
+			<div class="two columns center"><label for="NOIRsp">SP</label></div>
+			<div class="two columns center"><input id="NOIRsp" type="text" /></div>
+		</div>
+		<!-- ??/NOIR PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Milady Level</label></div>
+		</div>
+		-->
+
+		<!-- ??/ORACLE STATS -->
+		<div class="row">
+			<div class="two columns center"><label>???/Oracle XP</label></div>
+			<div class="two columns center"><input id="ORACLExp" type="text" /></div>
+			<div class="two columns center"><label for="ORACLEhp">HP</label></div>
+			<div class="two columns center"><input id="ORACLEhp" type="text" /></div>
+			<div class="two columns center"><label for="ORACLEsp">SP</label></div>
+			<div class="two columns center"><input id="ORACLEsp" type="text" /></div>
+		</div>
+		<!-- ??/ORACLE PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Necronomicon Level</label></div>
+		</div>
+		-->
+
+		<!-- ??/CROW STATS -->
+		<div class="row">
+			<div class="two columns center"><label>???/Crow XP</label></div>
+			<div class="two columns center"><input id="CROWxp" type="text" /></div>
+			<div class="two columns center"><label for="CROWhp">HP</label></div>
+			<div class="two columns center"><input id="CROWhp" type="text" /></div>
+			<div class="two columns center"><label for="CROWsp">SP</label></div>
+			<div class="two columns center"><input id="CROWsp" type="text" /></div>
+		</div>
+		<!-- ??/CROW PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Robin Hood Level</label></div>
+		</div>
+		-->
+
+		<!-- ??/VIOLET STATS -->
+		<div class="row">
+			<div class="two columns center"><label>???/Violet XP</label></div>
+			<div class="two columns center"><input id="VIOLETxp" type="text" /></div>
+			<div class="two columns center"><label for="VIOLEThp">HP</label></div>
+			<div class="two columns center"><input id="VIOLEThp" type="text" /></div>
+			<div class="two columns center"><label for="VIOLETsp">SP</label></div>
+			<div class="two columns center"><input id="VIOLETsp" type="text" /></div>
+		</div>
+		<!-- ??/VIOLET PERSONA -->
+		<!--<div class="row">
+			<div class="six columns center"><label>Cendrillon Level</label></div>
+		</div>
+		-->
+	</div>
+	<h3 class="green">Items</h3>
+	<div class="container">
+		<div class="row">
+			<div class="two columns center"><label for="lockpick">Lockpick</label></div>
+			<div class="two columns center"><input id="lockpick" type="text" /></div>
+		</div>
+		<div class="row">
+			<div class="two columns center"><label for="silkyarn">Silk Yarn</label></div>
+			<div class="two columns center"><input id="silkyarn" type="text" /></div>
+		</div>
+		<div class="row">
+			<div class="two columns center"><label for="tinclasp">Tin Clasp</label></div>
+			<div class="two columns center"><input id="tinclasp" type="text" /></div>
 		</div>
 	</div>
 </div>
