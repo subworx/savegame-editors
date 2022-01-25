@@ -1,37 +1,118 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <ul>
-      <li>Dump decrypted saves using <a href="https://github.com/bucanero/apollo-ps4/" target="_blank">Apollo PS4</a>:</li>
+<head>
+	<title>Help - HTML5 Savegame Editors</title>
+	<meta http-equiv="content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="description" content="A compilation of game savegame editors, made with Marc Robledo's small library save-editor.js"/>
+	<meta name="keywords" content="html5, savegame, save, editor, hack, exploit, ps4, 3ds, wii u, zelda, breath of the wild, team kirby clash deluxe, hyrule warriors, kid icarus uprising, picross 3d round 2, rhythm paradise megamix, rhythm heaven megamix, streetpass mii plaza, unlock, amiibo, materials, experience, weapon"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <!--<link rel="shortcut icon" href="favicon.png"/>-->
+	<link type="text/css" rel="stylesheet" href="./savegame-editor.css" media="all"/>
+	<style type="text/css"><!--
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800');
+
+body{
+	background-color:#252525;
+	color:#e8e8e8;
+	font-family:'Open Sans',sans-serif;
+	margin:0;
+	font-size:14px
+}
+
+h1{text-align:center;color:#49c5ff;margin:3% 0;}
+h2{text-align:center;color:#49c5ff;margin:3% 0;}
+.help{color:#49c5ff;}
+.center{text-align:center;}
+
+div a{color:#49c5ff;}
+
+.wrapper{
+	max-width:960px;
+	margin:0 auto;
+}
+.row{
+	display:flex;/* or inline-flex */
+	flex-direction:row;
+	justify-content:space-between;
+	margin-bottom:30px;
+}
+.three.columns{flex-basis:32%}
+.four.columns{flex-basis:23.5%}
+.game{
+	color:white;
+	text-decoration:none;
+}
+hr{
+	border:none;
+	border-top:1px solid #333;
+}
+h6{
+	font-size:85%;
+	font-weight:normal;
+	text-align:center;
+	color:#696969;
+	line-height:2
+}
+h6 a{
+	color:#999;
+	text-decoration:none;
+	border-bottom:1px solid #555
+}
+h6 a:hover{
+	color:white;
+	border-color:#9cc933;
+}
+--></style>
+</head>
+<body>
+<div id="the-editor" class="wrapper">
+  <h3 class="green">Handling savegames</h3>
+	<div class="container">
+		<div class="row">
+      <div>
+        <ul>
+          <li>Dump decrypted savesgames using <a href="https://github.com/bucanero/apollo-ps4/" target="_blank">Apollo PS4</a>:</li>
+          <ul>
+            <li>Select "HDD Saves".</li>
+            <li>Select savegame to edit.</li>
+            <li>Select "Export save-game files".</li>
+          </ul>
+          <li>Apollo also contains premade savegame patches and downloadable savegames for an increasing number of games.<br />If these are sufficient for you, you will be happy with Apollo alone 😀</li>
+          <li>Alternatively, you can use ctn123's <a href="https://github.com/ctn123/Binary-Releases/releases" target="_blank">PlayStation 4 Save Mounter</a> which runs on PC directly and requires the included ps4debug payload.</li>
+          <ul><li>This tool will most likely not be continued by its developer.</li></ul>
+          <li>FTP into your PS4, navigate to /data/apollo/&lt;yourUserID&gt;/CUSAXXXXX, copy the savegame to your PC.</li>
+          <li>MAKE A BACKUP OF THAT SAVE!</li>
+          <li>Load the savegame into the respective editor, edit to your liking, click the Save button at the top, save the result.</li>
+          <li>On the FTP, delete the existing file, upload your edited savegame (or overwrite).</li>
+          <li>Back in Apollo:
+          <ul>
+            <li>Select same savegame again.</li>
+            <li>Select "Import decrypted save files".</li>
+            <li>Add the file(s) you edited, one per Import.</li>
+            <li>Once all files are added, select "Apply Changes &amp; Resign".</li>
+          </ul>
+          <li>Make sure you exit Apollo by using O button on the controller until you can quit, otherwise your savegames might get corrupted.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<h3 class="green">Other tools/editors</h3>
+<div class="container">
+  <div class="row">
+    <div>
       <ul>
-       <li>Select "HDD Saves".</li>
-       <li>Select savegame to edit.</li>
-       <li>Select "Export save-game files".</li>
+        <li><a href="https://github.com/substatica/gvas-converter/" target="_blank">GVAS Converter</a> - convert UE4 Savegames to JSON (but not back)</li>
+        <li><a href="https://github.com/Xeeynamo/KingdomSaveEditor/" target="_blank">Kingdom Save Editor</a> - Editor for all Kingdom Hearts games, FF7 Remake, Persona 5</li>
+        <li><a href="https://forums.pcsx2.net/Thread-FFXED-Final-Fantasy-X-Save-Editor" target="_blank">FFXED</a> - Final Fantasy X (HD?) Editor</li>
+        <li><a href="" target="_blank"></a></li>
       </ul>
-      <li>Apollo also contains premade savegame patches and downloadable savegames for an increasing number of games.<br />If these are sufficient for you, you will be happy with Apollo alone 😀</li>
-      <li>Alternatively, you can use ctn123's <a href="https://github.com/ctn123/Binary-Releases/releases" target="_blank">PlayStation 4 Save Mounter</a> which runs on PC directly and requires the included ps4debug payload.</li>
-      <ul><li>This tool will most likely not be continued by its developer.</li></ul>
-      <li>FTP into your PS4, navigate to /data/apollo/&lt;yourUserID&gt;/CUSAXXXXX, copy the savegame to your PC.</li>
-      <li>MAKE A BACKUP OF THAT SAVE!</li>
-      <li>Load the save into the respective editor, edit to your liking, click the save button at the top, save the result.</li>
-      <li>On the FTP, delete the existing file, upload your edited save (or overwrite).</li>
-      <li>Back in Apollo:
-      <ul>
-        <li>Select same savegame again.</li>
-        <li>Select "Import decrypted save files".</li>
-        <li>Add the file(s) you edited, one per Import.</li>
-        <li>Once all files are added, select "Apply Changes &amp; Resign".</li>
-      </ul>
-      <li>Make sure you exit Apollo by using O button on the controller until you can quit, otherwise your savegames might get corrupted.</li>
-    </ul>
-  <br />
-  <br />
-  Other editors:<br />
-  <ul>
-    <li><a href="https://github.com/substatica/gvas-converter/" target="_blank">GVAS Converter</a> - convert UE4 Saves to JSON (but not back)</li>
-    <li><a href="https://github.com/Xeeynamo/KingdomSaveEditor/" target="_blank">Kingdom Save Editor</a> - Editor for all Kingdom Hearts, FF7 Remake, Persona 5</li>
-    <li><a href="https://forums.pcsx2.net/Thread-FFXED-Final-Fantasy-X-Save-Editor" target="_blank">FFXED</a> - Final Fantasy X (HD?) Editor</li>
-    <li><a href="" target="_blank"></a></li>
-  </ul>
+    </div>
+  </div>
+</div>
+
+<div class="center">
   <a href="./">Back to editor overview</a>
- </body>
+</div>
+</body>
 </html>
