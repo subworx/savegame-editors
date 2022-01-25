@@ -126,9 +126,9 @@ SavegameEditor={
 		tempFile.writeU32(this.Offsets.KASUMIHP, getValue('kasumihp'));
 		tempFile.writeU32(this.Offsets.KASUMIHP+0x4, getValue('kasumisp'));
 		tempFile.writeU32(this.Offsets.KASUMIHP+0x40, getValue('kasumixp'));
-		tempfile.writeU8(this.Offsets.LOCKPICK, getValue('lockpick'));
-		tempfile.writeU8(this.Offsets.SILKYARN, getValue('silkyarn'));
-		tempfile.writeU8(this.Offsets.TINCLASP, getValue('tinclasp'));
+		tempFile.writeU8(this.Offsets.LOCKPICK, getValue('lockpick'));
+		tempFile.writeU8(this.Offsets.SILKYARN, getValue('silkyarn'));
+		tempFile.writeU8(this.Offsets.TINCLASP, getValue('tinclasp'));
 		/*var boughtPicrites=getValue('boughtpicrites');
 		tempFile.writeU16(this.Offsets.BOUGHTPICRITES, boughtPicrites);*/
 		/*var unlockedShopByte=tempFile.readU8(this.Offsets.UNLOCKEDSHOPFLAG) & ~0x01;
