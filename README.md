@@ -1,8 +1,13 @@
 # HTML5 Savegame editors
 A compilation of console savegame editors made with HTML5 technologies.
 
-It can edit a few bits in the following games:
- * The legend of Zelda: Breath of the wild (Wii U / Switch)
+https://subworx.github.io/savegame-editors/
+
+New in progress:
+ * Persona 5 Royal (PS4)
+
+Other included save editors by Marc Robledo:
+ * The Legend of Zelda: Breath of the wild (Wii U / Switch)
  * Super Smash Bros. Ultimate (Switch)
  * Hyrule Warriors (Wii U)
  * Kid Icarus: Uprising (3DS)
@@ -17,6 +22,3 @@ It can edit a few bits in the following games:
  * Pokémon Shuffle (3DS)
  * Rhythm Paradise Megamix (3DS)
  * StreetPass Mii Plaza (3DS)
-
-New in progress:
- * Persona 5 Royal (PS4)
