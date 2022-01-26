@@ -38,6 +38,7 @@ SavegameEditor={
 		setNumericRange('money', 0, 9999999);
 		setNumericRange('mementoflowers', 0, 500);
 		setNumericRange('herocharm', 1, 132);
+		setNumericRange('heroknowledge', 1, 192);
 	},
 
 	/* load function */
