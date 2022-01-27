@@ -40,6 +40,7 @@ SavegameEditor={
 		setNumericRange('secondhandpoints', 0, 9999);
 		setNumericRange('herocharm', 1, 132);
 		setNumericRange('heroknowledge', 1, 192);
+		setNumericRange('heroproficiency', 1, 87);
 	},
 
 	/* load function */
