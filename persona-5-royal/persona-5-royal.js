@@ -14,15 +14,15 @@ SavegameEditor={
 		MEMENTOFLOWERS:0x17da8, /* U16, crashes at FFFF */
 		HEROHP:0x5c, /* +0x4 = SP; +0x10 = XP */
 		HEROKNOWLEDGE:0x13868, /* U16, 2 Byte */ /* +2 = charm, proficiency, guts, kindness = 0x13870 */
-		RYUJIHP:0x304, /* +0x4 = SP; +0x40 = XP */
-		MORGANAHP:0x5ac,
-		ANNHP:0x854,
-		YUSUKEHP:0xafc,
-		MAKOTOHP:0xda4,
-		HARUHP:0x104c,
-		FUTABAHP:0x12f4,
-		GOROHP:0x159c,
-		KASUMIHP:0x1844,
+		SKULLHP:0x304, /* +0x4 = SP; +0x40 = XP */
+		MONAHP:0x5ac,
+		PANTHERHP:0x854,
+		FOXHP:0xafc,
+		QUEENHP:0xda4,
+		NOIRHP:0x104c,
+		ORACLEHP:0x12f4,
+		CROWHP:0x159c,
+		VIOLETHP:0x1844,
 		LOCKPICK:0x264c, /* U8 */
 		SILKYARN:0x2569,
 		TINCLASP:0x256b,
@@ -56,33 +56,33 @@ SavegameEditor={
 		setValue('heroproficiency', tempFile.readU16(this.Offsets.HEROKNOWLEDGE+0x4));
 		setValue('heroguts', tempFile.readU16(this.Offsets.HEROKNOWLEDGE+0x6));
 		setValue('herokindness', tempFile.readU16(this.Offsets.HEROKNOWLEDGE+0x8));
-		setValue('ryujihp', tempFile.readU32(this.Offsets.RYUJIHP));
-		setValue('ryujisp', tempFile.readU32(this.Offsets.RYUJIHP+0x4));
-		setValue('ryujixp', tempFile.readU32(this.Offsets.RYUJIHP+0x40));
-		setValue('morganahp', tempFile.readU32(this.Offsets.MORGANAHP));
-		setValue('morganasp', tempFile.readU32(this.Offsets.MORGANAHP+0x4));
-		setValue('morganaxp', tempFile.readU32(this.Offsets.MORGANAHP+0x40));
-		setValue('annhp', tempFile.readU32(this.Offsets.ANNHP));
-		setValue('annsp', tempFile.readU32(this.Offsets.ANNHP+0x4));
-		setValue('annxp', tempFile.readU32(this.Offsets.ANNHP+0x40));
-		setValue('yusukehp', tempFile.readU32(this.Offsets.YUSUKEHP));
-		setValue('yusukesp', tempFile.readU32(this.Offsets.YUSUKEHP+0x4));
-		setValue('yusukexp', tempFile.readU32(this.Offsets.YUSUKEHP+0x40));
-		setValue('makotohp', tempFile.readU32(this.Offsets.MAKOTOHP));
-		setValue('makotosp', tempFile.readU32(this.Offsets.MAKOTOHP+0x4));
-		setValue('makotoxp', tempFile.readU32(this.Offsets.MAKOTOHP+0x40));
-		setValue('haruhp', tempFile.readU32(this.Offsets.HARUHP));
-		setValue('harusp', tempFile.readU32(this.Offsets.HARUHP+0x4));
-		setValue('haruxp', tempFile.readU32(this.Offsets.HARUHP+0x40));
-		setValue('futabahp', tempFile.readU32(this.Offsets.FUTABAHP));
-		setValue('futabasp', tempFile.readU32(this.Offsets.FUTABAHP+0x4));
-		setValue('futabaxp', tempFile.readU32(this.Offsets.FUTABAHP+0x40));
-		setValue('gorohp', tempFile.readU32(this.Offsets.GOROHP));
-		setValue('gorosp', tempFile.readU32(this.Offsets.GOROHP+0x4));
-		setValue('goroxp', tempFile.readU32(this.Offsets.GOROHP+0x40));
-		setValue('kasumihp', tempFile.readU32(this.Offsets.KASUMIHP));
-		setValue('kasumisp', tempFile.readU32(this.Offsets.KASUMIHP+0x4));
-		setValue('kasumixp', tempFile.readU32(this.Offsets.KASUMIHP+0x40));
+		setValue('skullhp', tempFile.readU32(this.Offsets.SKULLHP));
+		setValue('skullsp', tempFile.readU32(this.Offsets.SKULLHP+0x4));
+		setValue('skullxp', tempFile.readU32(this.Offsets.SKULLHP+0x40));
+		setValue('monahp', tempFile.readU32(this.Offsets.MONAHP));
+		setValue('monasp', tempFile.readU32(this.Offsets.MONAHP+0x4));
+		setValue('monaxp', tempFile.readU32(this.Offsets.MONAHP+0x40));
+		setValue('pantherhp', tempFile.readU32(this.Offsets.PANTHERHP));
+		setValue('panthersp', tempFile.readU32(this.Offsets.PANTHERHP+0x4));
+		setValue('pantherxp', tempFile.readU32(this.Offsets.PANTHERHP+0x40));
+		setValue('foxhp', tempFile.readU32(this.Offsets.FOXHP));
+		setValue('foxsp', tempFile.readU32(this.Offsets.FOXHP+0x4));
+		setValue('foxxp', tempFile.readU32(this.Offsets.FOXHP+0x40));
+		setValue('queenhp', tempFile.readU32(this.Offsets.QUEENHP));
+		setValue('queensp', tempFile.readU32(this.Offsets.QUEENHP+0x4));
+		setValue('queenxp', tempFile.readU32(this.Offsets.QUEENHP+0x40));
+		setValue('noirhp', tempFile.readU32(this.Offsets.NOIRHP));
+		setValue('noirsp', tempFile.readU32(this.Offsets.NOIRHP+0x4));
+		setValue('noirxp', tempFile.readU32(this.Offsets.NOIRHP+0x40));
+		setValue('oraclehp', tempFile.readU32(this.Offsets.ORACLEHP));
+		setValue('oraclesp', tempFile.readU32(this.Offsets.ORACLEHP+0x4));
+		setValue('oraclexp', tempFile.readU32(this.Offsets.ORACLEHP+0x40));
+		setValue('crowhp', tempFile.readU32(this.Offsets.CROWHP));
+		setValue('crowsp', tempFile.readU32(this.Offsets.CROWHP+0x4));
+		setValue('crowxp', tempFile.readU32(this.Offsets.CROWHP+0x40));
+		setValue('violethp', tempFile.readU32(this.Offsets.VIOLETHP));
+		setValue('violetsp', tempFile.readU32(this.Offsets.VIOLETHP+0x4));
+		setValue('violetxp', tempFile.readU32(this.Offsets.VIOLETHP+0x40));
 		setValue('lockpick', tempFile.readU8(this.Offsets.LOCKPICK));
 		setValue('silkyarn', tempFile.readU8(this.Offsets.SILKYARN));
 		setValue('tinclasp', tempFile.readU8(this.Offsets.TINCLASP));
@@ -101,33 +101,33 @@ SavegameEditor={
 		tempFile.writeU16(this.Offsets.HEROKNOWLEDGE+0x4, getValue('heroproficiency'));
 		tempFile.writeU16(this.Offsets.HEROKNOWLEDGE+0x6, getValue('heroguts'));
 		tempFile.writeU16(this.Offsets.HEROKNOWLEDGE+0x8, getValue('herokindness'));
-		tempFile.writeU32(this.Offsets.RYUJIHP, getValue('ryujihp'));
-		tempFile.writeU32(this.Offsets.RYUJIHP+0x4, getValue('ryujisp'));
-		tempFile.writeU32(this.Offsets.RYUJIHP+0x40, getValue('ryujixp'));
-		tempFile.writeU32(this.Offsets.MORGANAHP, getValue('morganahp'));
-		tempFile.writeU32(this.Offsets.MORGANAHP+0x4, getValue('morganasp'));
-		tempFile.writeU32(this.Offsets.MORGANAHP+0x40, getValue('morganaxp'));
-		tempFile.writeU32(this.Offsets.ANNHP, getValue('annhp'));
-		tempFile.writeU32(this.Offsets.ANNHP+0x4, getValue('annsp'));
-		tempFile.writeU32(this.Offsets.ANNHP+0x40, getValue('annxp'));
-		tempFile.writeU32(this.Offsets.YUSUKEHP, getValue('yusukehp'));
-		tempFile.writeU32(this.Offsets.YUSUKEHP+0x4, getValue('yusukesp'));
-		tempFile.writeU32(this.Offsets.YUSUKEHP+0x40, getValue('yusukexp'));
-		tempFile.writeU32(this.Offsets.MAKOTOHP, getValue('makotohp'));
-		tempFile.writeU32(this.Offsets.MAKOTOHP+0x4, getValue('makotosp'));
-		tempFile.writeU32(this.Offsets.MAKOTOHP+0x40, getValue('makotoxp'));
-		tempFile.writeU32(this.Offsets.HARUHP, getValue('haruhp'));
-		tempFile.writeU32(this.Offsets.HARUHP+0x4, getValue('harusp'));
-		tempFile.writeU32(this.Offsets.HARUHP+0x40, getValue('haruxp'));
-		tempFile.writeU32(this.Offsets.FUTABAHP, getValue('futabahp'));
-		tempFile.writeU32(this.Offsets.FUTABAHP+0x4, getValue('futabasp'));
-		tempFile.writeU32(this.Offsets.FUTABAHP+0x40, getValue('futabaxp'));
-		tempFile.writeU32(this.Offsets.GOROHP, getValue('gorohp'));
-		tempFile.writeU32(this.Offsets.GOROHP+0x4, getValue('gorosp'));
-		tempFile.writeU32(this.Offsets.GOROHP+0x40, getValue('goroxp'));
-		tempFile.writeU32(this.Offsets.KASUMIHP, getValue('kasumihp'));
-		tempFile.writeU32(this.Offsets.KASUMIHP+0x4, getValue('kasumisp'));
-		tempFile.writeU32(this.Offsets.KASUMIHP+0x40, getValue('kasumixp'));
+		tempFile.writeU32(this.Offsets.SKULLHP, getValue('skullhp'));
+		tempFile.writeU32(this.Offsets.SKULLHP+0x4, getValue('skullsp'));
+		tempFile.writeU32(this.Offsets.SKULLHP+0x40, getValue('skullxp'));
+		tempFile.writeU32(this.Offsets.MONAHP, getValue('monahp'));
+		tempFile.writeU32(this.Offsets.MONAHP+0x4, getValue('monasp'));
+		tempFile.writeU32(this.Offsets.MONAHP+0x40, getValue('monaxp'));
+		tempFile.writeU32(this.Offsets.PANTHERHP, getValue('pantherhp'));
+		tempFile.writeU32(this.Offsets.PANTHERHP+0x4, getValue('panthersp'));
+		tempFile.writeU32(this.Offsets.PANTHERHP+0x40, getValue('pantherxp'));
+		tempFile.writeU32(this.Offsets.FOXHP, getValue('foxhp'));
+		tempFile.writeU32(this.Offsets.FOXHP+0x4, getValue('foxsp'));
+		tempFile.writeU32(this.Offsets.FOXHP+0x40, getValue('foxxp'));
+		tempFile.writeU32(this.Offsets.QUEENHP, getValue('queenhp'));
+		tempFile.writeU32(this.Offsets.QUEENHP+0x4, getValue('queensp'));
+		tempFile.writeU32(this.Offsets.QUEENHP+0x40, getValue('queenxp'));
+		tempFile.writeU32(this.Offsets.NOIRHP, getValue('noirhp'));
+		tempFile.writeU32(this.Offsets.NOIRHP+0x4, getValue('noirsp'));
+		tempFile.writeU32(this.Offsets.NOIRHP+0x40, getValue('noirxp'));
+		tempFile.writeU32(this.Offsets.ORACLEHP, getValue('oraclehp'));
+		tempFile.writeU32(this.Offsets.ORACLEHP+0x4, getValue('oraclesp'));
+		tempFile.writeU32(this.Offsets.ORACLEHP+0x40, getValue('oraclexp'));
+		tempFile.writeU32(this.Offsets.CROWHP, getValue('crowhp'));
+		tempFile.writeU32(this.Offsets.CROWHP+0x4, getValue('crowsp'));
+		tempFile.writeU32(this.Offsets.CROWHP+0x40, getValue('crowxp'));
+		tempFile.writeU32(this.Offsets.VIOLETHP, getValue('violethp'));
+		tempFile.writeU32(this.Offsets.VIOLETHP+0x4, getValue('violetsp'));
+		tempFile.writeU32(this.Offsets.VIOLETHP+0x40, getValue('violetxp'));
 		tempFile.writeU8(this.Offsets.LOCKPICK, getValue('lockpick'));
 		tempFile.writeU8(this.Offsets.SILKYARN, getValue('silkyarn'));
 		tempFile.writeU8(this.Offsets.TINCLASP, getValue('tinclasp'));
