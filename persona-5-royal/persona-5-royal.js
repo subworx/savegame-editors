@@ -19,8 +19,8 @@ SavegameEditor={
 		PANTHERHP:0x854,
 		FOXHP:0xafc,
 		QUEENHP:0xda4,
-		NOIRHP:0x104c,
-		ORACLEHP:0x12f4,
+		ORACLEHP:0x104c,
+		NOIRHP:0x12f4,
 		CROWHP:0x159c,
 		VIOLETHP:0x1844,
 		LOCKPICK:0x264c, /* U8 */
@@ -38,8 +38,8 @@ SavegameEditor={
 		setNumericRange('money', 0, 9999999);
 		setNumericRange('mementoflowers', 0, 500);
 		setNumericRange('secondhandpoints', 0, 9999);
-		setNumericRange('herocharm', 1, 132);
 		setNumericRange('heroknowledge', 1, 192);
+		setNumericRange('herocharm', 1, 132);
 		setNumericRange('heroproficiency', 1, 87);
 	},
 
@@ -73,12 +73,12 @@ SavegameEditor={
 		setValue('queenhp', tempFile.readU32(this.Offsets.QUEENHP));
 		setValue('queensp', tempFile.readU32(this.Offsets.QUEENHP+0x4));
 		setValue('queenxp', tempFile.readU32(this.Offsets.QUEENHP+0x40));
-		setValue('noirhp', tempFile.readU32(this.Offsets.NOIRHP));
-		setValue('noirsp', tempFile.readU32(this.Offsets.NOIRHP+0x4));
-		setValue('noirxp', tempFile.readU32(this.Offsets.NOIRHP+0x40));
 		setValue('oraclehp', tempFile.readU32(this.Offsets.ORACLEHP));
 		setValue('oraclesp', tempFile.readU32(this.Offsets.ORACLEHP+0x4));
 		setValue('oraclexp', tempFile.readU32(this.Offsets.ORACLEHP+0x40));
+		setValue('noirhp', tempFile.readU32(this.Offsets.NOIRHP));
+		setValue('noirsp', tempFile.readU32(this.Offsets.NOIRHP+0x4));
+		setValue('noirxp', tempFile.readU32(this.Offsets.NOIRHP+0x40));
 		setValue('crowhp', tempFile.readU32(this.Offsets.CROWHP));
 		setValue('crowsp', tempFile.readU32(this.Offsets.CROWHP+0x4));
 		setValue('crowxp', tempFile.readU32(this.Offsets.CROWHP+0x40));
@@ -118,12 +118,12 @@ SavegameEditor={
 		tempFile.writeU32(this.Offsets.QUEENHP, getValue('queenhp'));
 		tempFile.writeU32(this.Offsets.QUEENHP+0x4, getValue('queensp'));
 		tempFile.writeU32(this.Offsets.QUEENHP+0x40, getValue('queenxp'));
-		tempFile.writeU32(this.Offsets.NOIRHP, getValue('noirhp'));
-		tempFile.writeU32(this.Offsets.NOIRHP+0x4, getValue('noirsp'));
-		tempFile.writeU32(this.Offsets.NOIRHP+0x40, getValue('noirxp'));
 		tempFile.writeU32(this.Offsets.ORACLEHP, getValue('oraclehp'));
 		tempFile.writeU32(this.Offsets.ORACLEHP+0x4, getValue('oraclesp'));
 		tempFile.writeU32(this.Offsets.ORACLEHP+0x40, getValue('oraclexp'));
+		tempFile.writeU32(this.Offsets.NOIRHP, getValue('noirhp'));
+		tempFile.writeU32(this.Offsets.NOIRHP+0x4, getValue('noirsp'));
+		tempFile.writeU32(this.Offsets.NOIRHP+0x40, getValue('noirxp'));
 		tempFile.writeU32(this.Offsets.CROWHP, getValue('crowhp'));
 		tempFile.writeU32(this.Offsets.CROWHP+0x4, getValue('crowsp'));
 		tempFile.writeU32(this.Offsets.CROWHP+0x40, getValue('crowxp'));
