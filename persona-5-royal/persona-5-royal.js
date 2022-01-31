@@ -41,7 +41,7 @@ SavegameEditor={
 		setNumericRange('heroknowledge', 1, 192);
 		setNumericRange('herocharm', 1, 132);
 		setNumericRange('heroproficiency', 1, 87);
-		//setNumericRange('heroguts', 1, );
+		setNumericRange('heroguts', 1, 113);
 		setNumericRange('herokindness', 1, 136);
 	},
 
