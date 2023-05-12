@@ -29,14 +29,24 @@ caches.keys().then(function(cacheNames){
 	}
 });
 
-var PRECACHE_ID='smash-bros-ultimate-editor';
-var PRECACHE_VERSION='v1c';
+var PRECACHE_ID='zelda-totk-editor';
+var PRECACHE_VERSION='v0a';
 var PRECACHE_URLS=[
-	'/savegame-editors/smash-bros-ultimate/','/savegame-editors/smash-bros-ultimate/index.html',
-	'/savegame-editors/smash-bros-ultimate/favicon.png',
-	'/savegame-editors/smash-bros-ultimate/smash-bros-ultimate.js',
-	'/savegame-editors/savegame-editor.js',
-	'/savegame-editors/savegame-editor.css'
+	//is hashes file too big for cacheing?
+	'/savegame-editors/zelda-totk/','/savegame-editors/zelda-totk/index.html',
+	'/savegame-editors/zelda-totk/zelda-totk.css',
+	'/savegame-editors/zelda-totk/zelda-totk.js',
+	'/savegame-editors/zelda-totk/zelda-totk.data.js',
+	'/savegame-editors/zelda-totk/zelda-totk.icons.js',
+	'/savegame-editors/zelda-totk/zelda-totk.locations.js',
+	'/savegame-editors/zelda-totk/zelda-totk.master.js',
+	'/savegame-editors/zelda-totk/favicon.png',
+	'/savegame-editors/zelda-totk/assets/_blank.png',
+	'/savegame-editors/zelda-totk/assets/logo.png',
+	'/savegame-editors/zelda-totk/assets/tabs.png',
+	'/savegame-editors/zelda-totk/assets/bg_black.jpg',
+	'/savegame-editors/zelda-totk/assets/bg_white.jpg',
+	'/savegame-editors/savegame-editor.js'
 ];
 
 
