@@ -20,7 +20,9 @@ SavegameEditor={
 		FILESIZE:				[2307552, 2307656],
 		HEADER:					[0x0046c3c8, 0x0047e0f4],
 
-		ICON_TYPES:{SWORD: 27, BOW:28, SHIELD:29, POT:30, STAR:31, CHEST:32,SKULL:33,LEAF:34,TOWER:35}
+		ICON_TYPES:{SWORD: 27, BOW:28, SHIELD:29, POT:30, STAR:31, CHEST:32,SKULL:33,LEAF:34,TOWER:35},
+		
+		BLANK_ICON_PATH:'./assets/_blank.png'
 	},
 	currentGameVersionIndex:null,
 	_getCurrentGameVersionOffset:function(){
@@ -41,22 +43,22 @@ SavegameEditor={
 	/* v1.1 adds +0x38 to all offsets */
 	OffsetsItems:{
 		'shield':{
+			'id':			0x000760f0,
 			'durability':	0x0004a3b0,
-			'power':		0x0004ba5c,
-			'modifier':		0x00051070,
-			'id':			0x000760f0
+			'power':		0x0004ba54,
+			'modifier':		0x00051070
 		},
 		'bow':{
+			'id':			0x0007b4e4,
 			'durability':	0x0004aab8,
 			'power':		0x0004cafc,
-			'modifier':		0x0005252c,
-			'id':			0x0007b4e4
+			'modifier':		0x0005252c
 		},
 		'weapon':{
+			'id':			0x000c3b58,
 			'durability':	0x0004d1c0,
 			'power':		0x0004eed4,
-			'modifier':		0x000515bc,
-			'id':			0x000c3b58
+			'modifier':		0x000515bc
 		},
 		'arrows':{
 			'id':0x000820ec,
@@ -64,24 +66,24 @@ SavegameEditor={
 		},
 		'material':{
 			'id':0x000afbf4,
-			'quantity':0x00046148
+			'quantity':0x000477a4
 		},
 		'armor':{
 			'id':0x00061bbc,
-			' ':false
+			'quantity':false
 		},
 		'food':{
 			'id':0x00087ca4,
-			'quantity':false
+			'quantity':0x0004e984
+		},
+		'device':{
+			'id':0x0009cb70,
+			'quantity':0x00046148
 		},
 		'key':{
 			'id':0x000b9488,
-			'quantity':false
-		},
-		'spobj':{ //???
-			'id':0x0009cb70,
-			'quantity':false
-		},
+			'quantity':0x0004eb98
+		}
 	},
 	_readItemsNew:function(){
 		var offset=Offsets.ItemData;
@@ -111,6 +113,7 @@ SavegameEditor={
 			'materials':this._readItemsSimple('material'),
 			'armors':this._readItemsSimple('armor'),
 			'food':this._readItemsSimple('food'),
+			'devices':this._readItemsSimple('device'),
 			'key':this._readItemsSimple('key')
 		}
 	},
@@ -121,6 +124,7 @@ SavegameEditor={
 		this._writeItemsSimple(items.materials, this.OffsetsItems.material);
 		this._writeItemsSimple(items.armors, this.OffsetsItems.armor);
 		this._writeItemsSimple(items.food, this.OffsetsItems.food);
+		this._writeItemsSimple(items.devices, this.OffsetsItems.device);
 		this._writeItemsSimple(items.key, this.OffsetsItems.key);
 	},
 	_readItemsComplex:function(catId){
@@ -163,13 +167,14 @@ SavegameEditor={
 
 		var nItems=offsets.count=tempFile.readU32(offsetShift + offsets.id);
 		var items=[];
+		var readQuantity=offsets.quantity && tempFile.readU32(offsetShift + offsets.quantity)===offsets.count;
 		offsetShift+=0x04;
 		for(var i=0; i<nItems; i++){
 			var item={
 				'index':i,
 				'category':catId,
 				'id':tempFile.readString(offsetShift + offsets.id + i*0x40, 0x40),
-				'quantity':offsets.quantity? tempFile.readU32(offsets.quantity + i*0x04) : 1
+				'quantity':readQuantity? tempFile.readU32(offsetShift + offsets.quantity + i*0x04) : 1
 			};
 			if(item.id)
 				items.push(item);
@@ -178,12 +183,13 @@ SavegameEditor={
 	},
 	_writeItemsSimple:function(items, offsets){
 		var offsetShift=this._getCurrentGameVersionOffset();
+		var writeQuantity=offsets.quantity && tempFile.readU32(offsetShift + offsets.quantity)===offsets.count;
 
 		for(var i=0; i<items.length; i++){
 			var item=items[i];			
 			tempFile.writeString(0x04 + offsetShift + offsets.id + item.index * 0x40, item.id, 0x40);
-			if(offsets.quantity)
-				tempFile.writeU32(offsets.quantity + item.index*0x04, item.quantity);
+			if(writeQuantity)
+				tempFile.writeU32(0x04 + offsetShift + offsets.quantity + item.index*0x04, item.quantity);
 		}
 		return items;
 	},
@@ -251,12 +257,6 @@ SavegameEditor={
 				return TOTK_Data.Translations[i].items[itemId];
 		return '<span style="color:red">'+itemId+'</span>'
 	},
-	_getItemCategory:function(itemId){
-		for(var i=0; i<TOTK_Data.Translations.length; i++)
-			if(TOTK_Data.Translations[i].items[itemId])
-				return TOTK_Data.Translations[i].id;
-		return 'other'
-	},
 
 	/*_readStringBOTW:function(offset, len){
 		len=len || 8;
@@ -276,29 +276,6 @@ SavegameEditor={
 		return this._readString(offset, 64);
 	},*/
 
-	_loadItemName:function(i){
-		return this._readString64(this.Offsets.ITEMS+i*0x80);
-	},
-	_writeItemName:function(i,newItemNameId){
-		this._writeString64(this.Offsets.ITEMS, newItemNameId, i);
-	},
-	_getItemMaximumQuantity:function(itemId){
-		var cat=this._getItemCategory(itemId);
-		if(itemId.endsWith('Arrow') || itemId.endsWith('Arrow_A') || cat==='materials' || cat==='food'){
-			return 999;
-		}else if(cat==='weapons' || cat==='bows' || cat==='shields'){
-			return 6553500;
-		}else if(itemId==='Obj_DungeonClearSeal'){
-			return 120
-		}else if(itemId==='Obj_KorokNuts'){
-			return 900
-		}else{
-			return 0xffffffff;
-		}
-	},
-	_getItemQuantityOffset:function(i){
-		return this.Offsets.ITEMS_QUANTITY+i*0x08;
-	},
 	_getItemRow:function(i){
 		return getField('number-item'+i).parentElement.parentElement
 	},
@@ -306,11 +283,12 @@ SavegameEditor={
 
 		var img=new Image();
 		img.id='icon'+item.index;
-		img.src=TOTK_Icons.getBlankIcon();
-
-		/*img.addEventListener('error', function(){
-			img.src=TOTK_Icons.getBlankIcon();
-		}, false);*/
+		img.src=SavegameEditor.Constants.BLANK_ICON_PATH;
+		img.loading='lazy';
+		/*img.onerror=function(){
+			this.removeEventListener('error', this.onerror);
+			img.src=SavegameEditor.Constants.BLANK_ICON_PATH;
+		}*/
 
 		var itemNumber=document.createElement('span');
 		itemNumber.className='item-number';
@@ -325,7 +303,46 @@ SavegameEditor={
 		}, false);
 
 
-		var input;
+		var lastColumn=document.createElement('div');
+		if(item.category==='weapon' || item.category==='bow' || item.category==='shield'){
+			
+
+			var input1=inputNumber('item-durability-'+item.category+'-'+item.index, 1, 6553500, item.durability);
+			input1.addEventListener('change', function(){
+				var newVal=parseInt(this.value);
+				if(!isNaN(newVal) && newVal>0)
+					item.durability=newVal;
+			});
+			input1.title='Durability';
+
+			var input2=inputNumber('item-power-'+item.category+'-'+item.index, 1, 6553500, item.power);
+			input2.addEventListener('change', function(){
+				var newVal=parseInt(this.value);
+				if(!isNaN(newVal) && newVal>0)
+					item.power=newVal;
+			});
+			input2.title='Power';
+			input2.disabled=true;
+
+			var input3=inputNumber('item-modifier-'+item.category+'-'+item.index, 1, 0xffffffff, item.modifier.toString(16));
+			input3.title='Modifier';
+			input3.disabled=true;
+			
+			lastColumn.appendChild(input1);
+			lastColumn.appendChild(input2);
+			lastColumn.appendChild(input3);
+		}else if(item.quantity!==0xffffffff && (item.category==='material' || item.category==='food' || item.category==='device' || item.category==='key')){
+			var input=inputNumber('item-quantity-'+item.category+'-'+item.index, 1, 999, item.quantity);
+			input.addEventListener('change', function(){
+				var newVal=parseInt(this.value);
+				if(!isNaN(newVal) && newVal>0)
+					item.quantity=newVal;
+			});
+			input.title='Quantity';
+			
+			lastColumn.appendChild(input);
+		}
+		/*
 		if(item.category && item.category==='armors'){
 			input=select('item'+item.index, TOTK_Data.DYE_COLORS, function(){
 				TOTK_Icons.setIcon(img, SavegameEditor._loadItemName(item.index), parseInt(this.value));
@@ -334,25 +351,24 @@ SavegameEditor={
 
 			TOTK_Icons.setIcon(img, item.id, itemVal);
 		}else{
-			input=inputNumber('item'+item.index, 0, this._getItemMaximumQuantity(item.id), item.quantity);
+			input=inputNumber('item-quantity-'+item.category+'-'+item.index, 0, this._getItemMaximumQuantity(item.id), item.quantity);
 			input.addEventListener('change', function(){
 				var newVal=parseInt(this.value);
 				if(!isNaN(newVal) && newVal>0)
 					item.quantity=newVal;
 			});
 			TOTK_Icons.setIcon(img, item.id);
-		}
-		if(item.category!=='material')
-			input.disabled=true;
+		}*/
 
 		var r=row([1,6,3,2],
 			img,
 			span,
 			document.createElement('div'), /* modifier column */
-			input
+			lastColumn
 		);
 		r.className+=' row-items';
 		r.children[1].appendChild(itemNumber);
+		
 		return r;
 	},
 
@@ -681,10 +697,11 @@ SavegameEditor={
 		empty('container-armors');
 		empty('container-materials');
 		empty('container-food');
+		empty('container-devices');
 		empty('container-key');
 
 		/*var modifiersArray=[0,0,0];*/
-		var ITEM_CATS=['weapons','bows','shields','armors','materials','food','key'];
+		var ITEM_CATS=['weapons','bows','shields','armors','materials','food','devices','key'];
 		
 		for(var i=0; i<ITEM_CATS.length; i++){
 			var itemCat=ITEM_CATS[i];
@@ -694,10 +711,11 @@ SavegameEditor={
 				);
 			}
 		}
-		/*MarcTooltips.add('#container-weapons input',{text:'Weapon durability',position:'bottom',align:'right'});
-		MarcTooltips.add('#container-bows input',{text:'Bow durability',position:'bottom',align:'right'});
-		MarcTooltips.add('#container-shields input',{text:'Shield durability',position:'bottom',align:'right'});
-		TOTK_Icons.startLoadingIcons();*/
+		MarcTooltips.add('#container-weapons input',{position:'bottom',align:'right'});
+		MarcTooltips.add('#container-bows input',{position:'bottom',align:'right'});
+		MarcTooltips.add('#container-shields input',{position:'bottom',align:'right'});
+		MarcTooltips.add('#container-materials input',{position:'bottom',align:'right'});
+		MarcTooltips.add('#container-food input',{position:'bottom',align:'right'});
 
 		/* modifier column */
 		/*var modifierColumns=['weapon','bow','shield'];
@@ -779,12 +797,6 @@ SavegameEditor={
 
 		/* ITEMS */
 		this._writeItemsAll(this.currentItems);
-		/*for(var i=0; i<this.Constants.MAX_ITEMS; i++){
-			if(document.getElementById('number-item'+i) || document.getElementById('select-item'+i))
-				tempFile.writeU32(this._getItemQuantityOffset(i), getValue('item'+i));
-			else
-				break;
-		}*/
 
 		/* modifiers */
 		/*for(var i=0; document.getElementById('select-modifier-weapons-'+i); i++){
